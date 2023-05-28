@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Welcome_Page;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,4 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Welcome_Page', 'App\Http\Controllers\Welcome_Page@index');
+Route::get('/Welcome_Page', function() {
+    return view('Welcome_Page');
+})->name('start');
+
+Route::get('/Login', function() {
+    return view('Login');
+})->name('login');
