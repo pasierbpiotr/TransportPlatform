@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/Welcome_Page', function() {
     return view('Welcome_Page');
-})->name('start');
+})->name('welcome-page');
 
 Route::get('/Login', function() {
     return view('Login');

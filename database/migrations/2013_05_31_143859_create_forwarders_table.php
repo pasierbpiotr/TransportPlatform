@@ -12,11 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('forwarders', function (Blueprint $table) {
-            $table->primary('forwarder_id');
-            $table->string('f_name')->nullable(false);
-            $table->string('f_surname')->nullable(false);
-            $table->foreignId('user_id')->constrained('users')->nullable(false);
-            $table->foreignId('company_id')->constrained('companies')->nullable(false);
+            $table->integer('id')->primary();
+            $table->string('name')->nullable(false);
+            $table->string('surname')->nullable(false);
+            $table->integer('user_id')->nullable(false);
+            $table->integer('company_id')->nullable(false);
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('company_id')->references('id')->on('companies');
         });
     }
 

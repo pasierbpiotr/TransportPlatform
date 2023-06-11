@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transports', function (Blueprint $table) {
-            $table->primary('transport_id');
+            $table->integer('id')->primary();
             $table->string('starting_place')->nullable(false);
             $table->string('finishing_place')->nullable(false);
             $table->string('merchandise')->nullable(false);

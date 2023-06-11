@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('drivers__transports', function (Blueprint $table) {
-            $table->foreignId('driver_id')->constrained('drivers')->primary();
-            $table->foreignId('transport_id')->constrained('transports')->primary();
+            $table->integer('driver_id');
+            $table->integer('transport_id');
+            $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
+            $table->foreign('transport_id')->references('id')->on('transports')->onDelete('cascade');
         });
     }
 

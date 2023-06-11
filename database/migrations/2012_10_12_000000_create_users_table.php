@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->primary('user_id');
+            $table->integer('id')->primary();
             $table->integer('type_id')->nullable(false);
-            $table->string('u_login')->nullable(false);
-            $table->string('u_password')->nullable(false);
+            $table->foreign('type_id')->references('id')->on('user__type');
+            $table->string('login')->nullable(false);
+            $table->string('password')->nullable(false);
         });
     }
 
