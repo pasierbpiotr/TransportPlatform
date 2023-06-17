@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('forwarders', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('name')->nullable(false);
-            $table->string('surname')->nullable(false);
+            $table->string('name', 30)->nullable(false);
+            $table->string('surname', 30)->nullable(false);
             $table->integer('user_id')->nullable(false);
             $table->integer('company_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');

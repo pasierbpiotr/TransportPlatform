@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ForwardersController extends Controller
+class TransportController extends Controller
 {
     //
 }

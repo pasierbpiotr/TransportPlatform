@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('transports', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('starting_place')->nullable(false);
-            $table->string('finishing_place')->nullable(false);
-            $table->string('merchandise')->nullable(false);
-            $table->double('mass')->nullable(false);
-            $table->date('date_of_trans')->nullable(false);
+            $table->string('name', 50)->nullable(false);
+            $table->string('street', 50)->nullable(false);
+            $table->string('city', 30)->nullable(false);
+            $table->string('NIP', 11)->nullable(false);
         });
     }
 
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('transports');
+        Schema::dropIfExists('companies');
     }
 };

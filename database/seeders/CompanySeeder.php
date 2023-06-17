@@ -2,13 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
+use App\Models\Forwarder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Companies;
-use App\Models\Forwarders;
 use Illuminate\Support\Facades\Schema;
 
-class CompaniesSeeder extends Seeder
+class CompanySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,10 +16,11 @@ class CompaniesSeeder extends Seeder
     public function run(): void
     {
         Schema::withoutForeignKeyConstraints(function() {
-            Forwarders::truncate();
+            Forwarder::truncate();
+            Company::truncate();
         });
 
-        Companies::insert(
+        Company::insert(
             [
                 [
                     'id' => '1', 'name' => 'Firma Budowlana', 'street' => 'Piękna 10', 'city' => 'Warszawa', 'NIP' => '12345678901'

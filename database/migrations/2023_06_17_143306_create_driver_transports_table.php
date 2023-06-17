@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('drivers__transports', function (Blueprint $table) {
+        Schema::create('driver_transports', function (Blueprint $table) {
             $table->integer('driver_id');
             $table->integer('transport_id');
             $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('drivers__transports');
+        Schema::dropIfExists('driver_transports');
     }
 };

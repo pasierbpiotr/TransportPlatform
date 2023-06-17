@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        @include('include.headerBeforeLogin')
+        @include('include.header-before-login')
 
         <footer style="background-color: #e9ecef; text-align: center;">
             Developed by Piotr Pasierb - XXX&copy;

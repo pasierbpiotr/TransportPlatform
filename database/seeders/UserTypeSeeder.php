@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\User_Type;
+use App\Models\UserType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
@@ -17,9 +17,10 @@ class UserTypeSeeder extends Seeder
     {
         Schema::withoutForeignKeyConstraints(function() {
             User::truncate();
+            UserType::truncate();
         });
 
-        User_Type::insert(
+        UserType::insert(
             [
                 [
                     'id' => '1', 'title' => 'admin'

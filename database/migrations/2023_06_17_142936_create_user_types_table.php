@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user_types', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->integer('type_id')->nullable(false);
-            $table->foreign('type_id')->references('id')->on('user__type');
-            $table->string('login')->nullable(false);
-            $table->string('password')->nullable(false);
+            $table->string('title',20)->nullable(false);
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('user_types');
     }
 };

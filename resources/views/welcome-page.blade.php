@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        @include('include.headerBeforeLogin')
+        @include('include.header-before-login')
         <div>
             <h1>Welcome to our page!</h1>
             <p>We are XXX and support the work of transportation companies.</p>

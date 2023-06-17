@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Welcome_Page', function() {
-    return view('Welcome_Page');
-})->name('welcome-page');
+Route::get('/welcome-page', function() {
+    return view('welcome-page');
+})->name('welcome_page');
 
-Route::get('/Login', function() {
-    return view('Login');
+Route::get('/login', function() {
+    return view('login');
 })->name('login');

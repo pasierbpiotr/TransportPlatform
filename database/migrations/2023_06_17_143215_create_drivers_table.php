@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->integer('id')->primary();
-            $table->string('name')->nullable(false);
-            $table->string('surname')->nullable(false);
-            $table->string('car')->nullable(false);
+            $table->string('name', 30)->nullable(false);
+            $table->string('surname', 30)->nullable(false);
+            $table->string('car', 30)->nullable(false);
             $table->integer('user_id')->nullable(false);
             $table->integer('forwarder_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
