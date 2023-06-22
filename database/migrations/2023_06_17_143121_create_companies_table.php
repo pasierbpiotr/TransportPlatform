@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('street', 50)->nullable(false);
             $table->string('city', 30)->nullable(false);
             $table->string('NIP', 11)->nullable(false);
+            $table->string('picture')->nullable(false);
         });
     }
 
