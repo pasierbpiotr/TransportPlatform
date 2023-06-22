@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Welcome_Page;
 use Illuminate\Support\Facades\Route;
 
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome-page', function() {
-    return view('welcome-page');
-})->name('welcome_page');
+Route::get('/welcome-page', [CompanyController::class, 'showPage'])->name('welcome_page');
 
 Route::get('/login', function() {
     return view('login');
 })->name('login');
+
+Route::get('/admin-view', function() {
+    return view('admin/admin-view');
+})->name('admin_view');
