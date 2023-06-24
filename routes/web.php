@@ -20,6 +20,7 @@ Route::get('/welcome-page', [CompanyController::class, 'showPage'])->name('welco
 
 Route::get('/login', [AuthController::class,'login'])->name('login');
 Route::post('/login', [AuthController::class,'loginPost'])->name('login_post');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/forwarder-view', function() {
     return view('forwarder/forwarder-view');
