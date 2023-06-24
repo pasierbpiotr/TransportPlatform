@@ -1,0 +1,38 @@
+body {
+    background-color: #001C30;
+}
+
+.container {
+    background-color: #001C30;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.btnwlasny {
+    background-color: #176B87;
+    color: #fff;
+    border: none;
+}
+
+.btnwlasny:nth-child(1) {
+    background-color: #176B87;
+}
+
+.btn {
+    background-color: #001C30;
+    color: #fff;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #DAFFFB;
+    color: #001C30;
+}
+
+.custom-input::placeholder {
+    color: #ccc;
+}
+
+.custom-input:focus::placeholder {
+    color: transparent;
+}

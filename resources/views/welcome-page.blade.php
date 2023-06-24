@@ -9,33 +9,27 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
         <style>
             .carousel-caption-title {
-                background-color: rgba(51, 51, 51, 0.5); /* Adjust the background color and opacity as per your preference */
-                padding: 10px; /* Adjust the padding as per your preference */
-                color: #fff; /* Adjust the text color as per your preference */
+                background-color: rgba(51, 51, 51, 0.5);
+                padding: 10px;
+                color: #fff;
             }
 
-            /* Body background color */
             body {
-                background-color: #001C30; /* Change this to your desired body background color */
+                background-color: #001C30;
             }
 
-            /* Heading color */
             h1, h2, h3, h4, h5, h6 {
                 color: #DAFFFB;
             }
 
-            /* Text color */
             p, span, a {
-                color: #DAFFFB; /* Change this to your desired text color */
+                color: #DAFFFB;
             }
 
-            /* Link color */
             a {
-                color: var(--primary-color);
                 text-decoration: none;
             }
 
-            /* Button styles */
             .btn {
                 background-color: #001C30;
                 color: #fff;
@@ -47,16 +41,14 @@
                 color: #001C30;
             }
 
-            /* Navbar styles */
             .navbar {
                 background-color: #176B87;
                 color: #fff;
             }
 
-            /* Footer styles */
             footer {
-                background-color:#001C30; /* Change this to your desired footer background color */
-                color: #333; /* Change this to your desired footer text color */
+                background-color:#001C30;
+                color: #333;
             }
 
             .card {
@@ -66,7 +58,7 @@
     </head>
 
     <body>
-        @include('include.header-before-login')
+        @include('include.header')
         <div>
             <h1>Welcome to our page!</h1>
             <p>We are XXX and support the work of transportation companies.</p>

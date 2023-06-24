@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\Welcome_Page;
 use Illuminate\Support\Facades\Route;
@@ -17,9 +18,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/welcome-page', [CompanyController::class, 'showPage'])->name('welcome_page');
 
-Route::get('/login', function() {
-    return view('login');
-})->name('login');
+Route::get('/login', [AuthController::class,'login'])->name('login');
+Route::post('/login', [AuthController::class,'loginPost'])->name('login_post');
+
+Route::get('/forwarder-view', function() {
+    return view('forwarder/forwarder-view');
+})->name('forwarder_view');
+
+Route::get('/driver-view', function() {
+    return view('driver/driver-view');
+})->name('driver_view');
 
 Route::get('/admin-view', function() {
     return view('admin/admin-view');

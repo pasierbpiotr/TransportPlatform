@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('type_id')->nullable(false);
             $table->foreign('type_id')->references('id')->on('user_types');
             $table->string('login', 30)->nullable(false);
-            $table->string('password', 40)->nullable(false);
+            $table->string('password')->nullable(false);
         });
     }
 

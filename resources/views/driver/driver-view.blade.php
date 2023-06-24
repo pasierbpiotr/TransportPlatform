@@ -57,7 +57,7 @@
         @include('include.header')
 
         <div class="container">
-            <a class="tile" href="">View users</a>
+            <a class="tile" href="">View transports</a>
         </div>
 
         @include('include.footer')

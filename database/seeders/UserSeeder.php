@@ -7,6 +7,7 @@ use App\Models\Forwarder;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 class UserSeeder extends Seeder
@@ -24,43 +25,43 @@ class UserSeeder extends Seeder
         User::insert(
             [
                 [
-                    'id' => '1', 'type_id' => '1', 'login' => 'admin', 'password' => 'admin'
+                    'id' => '1', 'type_id' => '1', 'login' => 'admin', 'password' => Hash::make('admin')
                 ],
 
                 [
-                    'id' => '2', 'type_id' => '2', 'login' => 'user1', 'password' => 'password1'
+                    'id' => '2', 'type_id' => '2', 'login' => 'user1', 'password' => Hash::make('password1')
                 ],
 
                 [
-                    'id' => '3', 'type_id' => '2', 'login' => 'user2', 'password' => 'password2'
+                    'id' => '3', 'type_id' => '2', 'login' => 'user2', 'password' => Hash::make('password2')
                 ],
 
                 [
-                    'id' => '4', 'type_id' => '2', 'login' => 'user3', 'password' => 'password3'
+                    'id' => '4', 'type_id' => '2', 'login' => 'user3', 'password' => Hash::make('password3')
                 ],
 
                 [
-                    'id' => '5', 'type_id' => '3', 'login' => 'user4', 'password' => 'password4'
+                    'id' => '5', 'type_id' => '3', 'login' => 'user4', 'password' => Hash::make('password4')
                 ],
 
                 [
-                    'id' => '6', 'type_id' => '3', 'login' => 'user5', 'password' => 'password5'
+                    'id' => '6', 'type_id' => '3', 'login' => 'user5', 'password' => Hash::make('password5')
                 ],
 
                 [
-                    'id' => '7', 'type_id' => '3', 'login' => 'user6', 'password' => 'password6'
+                    'id' => '7', 'type_id' => '3', 'login' => 'user6', 'password' => Hash::make('password6')
                 ],
 
                 [
-                    'id' => '8', 'type_id' => '3', 'login' => 'user7', 'password' => 'password7'
+                    'id' => '8', 'type_id' => '3', 'login' => 'user7', 'password' => Hash::make('password7')
                 ],
 
                 [
-                    'id' => '9', 'type_id' => '3', 'login' => 'user8', 'password' => 'password8'
+                    'id' => '9', 'type_id' => '3', 'login' => 'user8', 'password' => Hash::make('password8')
                 ],
 
                 [
-                    'id' => '10', 'type_id' => '3', 'login' => 'user9', 'password' => 'password9'
+                    'id' => '10', 'type_id' => '3', 'login' => 'user9', 'password' => Hash::make('password9')
                 ]
             ]
         );
