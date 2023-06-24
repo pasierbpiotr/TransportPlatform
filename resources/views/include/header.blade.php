@@ -9,10 +9,11 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         @if(Auth::check())
-                            <form method="POST" action="{{route('logout')}}">
+                            <div style="display: flex; align-items:center;"><p style="color: #DAFFFB; margin-right: 10px;">Logged in: {{ $fullName }}</p>
+                            <form style="margin: 0;" method="POST" action="{{route('logout')}}">
                                 @csrf
                                 <button class="btn btn-primary" type="submit">Log out</button></a>
-                            </form>
+                            </form></div>
                         @else
                             <a class="nav-link" href="{{route('login')}}"><button class="btn btn-primary" type="button">Log in</button></a>
                         @endif

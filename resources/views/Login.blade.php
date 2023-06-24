@@ -12,7 +12,7 @@
 
         .container {
             background-color: #001C30;
-            padding: 20px;
+            padding: 10px;
             border-radius: 5px;
         }
 
@@ -44,25 +44,32 @@
         .custom-input:focus::placeholder {
             color: transparent;
         }
+
     </style>
 </head>
 <body>
     @include('include.header')
-    <div class="mt-5">
+    <div class="mt-5 container">
         @if ($errors->any())
             <div class="col-12">
                 @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger">{{$error}}</div>
+                    <div class="alert alert-danger">
+                        {{$error}}
+                    </div>
                 @endforeach
             </div>
         @endif
 
         @if (session()->has('error'))
-            <div class="alert alert-danger">{{session('error')}}</div>
+            <div class="alert alert-danger">
+                {{session('error')}}
+            </div>
         @endif
 
         @if (session()->has('success'))
-            <div class="alert alert-success">{{session('success')}}</div>
+            <div class="alert alert-success">
+                {{session('success')}}
+            </div>
         @endif
     </div>
     <div class="container d-flex justify-content-center align-items-center vh-100">

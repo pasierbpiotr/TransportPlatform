@@ -31,6 +31,11 @@ class RestricAccessMiddleware
                     abort(403, 'Unauthorized access.');
                 }
             }
+            elseif($request->routeIs('login')) {
+                if(Auth::check()) {
+                    abort(403,'Unauthorized access.');
+                }
+            }
         return $next($request);
     }
 }

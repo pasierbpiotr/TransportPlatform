@@ -40,5 +40,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    function nameForwarder() {
+        return $this->hasOne(Forwarder::class);
+    }
+
+    function nameDriver() {
+        return $this->hasOne(Driver::class);
+    }
 }
 
