@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class RestricAccessMiddleware
+class RestrictAccessMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class RestricAccessMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-            if($request->routeIs('admin_view')) {
+            if($request->routeIs('admin_view') || $request->routeIs('view_users')) {
                 if(!Auth::check() || Auth::user()->type_id !== 1) {
                     abort(403, 'Unauthorized access.');
                 }

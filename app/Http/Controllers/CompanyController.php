@@ -7,9 +7,8 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    public function showPage() {
+    public function startPage() {
         $companies = Company::all();
-
         return view('welcome-page', ['companies'=>$companies]);
     }
 }

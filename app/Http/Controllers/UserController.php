@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -23,7 +24,8 @@ class UserController extends Authenticatable
         'id',
         'type_id',
         'login',
-        'password'
+        'password',
+        'unhashed'
     ];
 
     /**
@@ -44,4 +46,9 @@ class UserController extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function viewUserPage() {
+        $users = User::all();
+        return view('admin.view-users', ['users'=>$users]);
+    }
 }
