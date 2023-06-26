@@ -43,6 +43,8 @@
                 font-size: 24px;
                 text-decoration: none;
                 color: #DAFFFB;
+                border-radius: 10%;
+                overflow: hidden;
             }
 
 
@@ -57,7 +59,7 @@
         @include('include.header')
 
         <div class="container">
-            <a class="tile" href="">View drivers</a>
+            <a class="tile" href="{{ route('show_drivers')}}">View drivers</a>
         </div>
 
         @include('include.footer')

@@ -28,11 +28,11 @@ class HeaderNameServiceProvider extends ServiceProvider
                 if($forwarder) {
                     $fullName = $forwarder->name.' '.$forwarder->surname;
                 }
-                elseif ($user && $user->type_id == 3) {
-                    $driver = Driver::where('user_id',$user->id)->first();
-                    if($driver) {
-                        $fullName = $driver->name.' '.$driver->surname;
-                    }
+            }
+            elseif ($user && $user->type_id == 3) {
+                $driver = Driver::where('user_id',$user->id)->first();
+                if($driver) {
+                    $fullName = $driver->name.' '.$driver->surname;
                 }
             }
 

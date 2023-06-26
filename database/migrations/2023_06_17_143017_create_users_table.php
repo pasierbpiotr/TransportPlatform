@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('login', 30)->nullable(false);
             $table->string('password')->nullable(false);
             $table->string('unhashed',30)->nullable(false);
+            $table->date('updated_at')->nullable(true);
         });
     }
 

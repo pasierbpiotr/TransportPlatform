@@ -16,24 +16,24 @@ class RestrictAccessMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-            if($request->routeIs('admin_view') || $request->routeIs('view_users')) {
+            if($request->routeIs('admin_view') || $request->routeIs('view_users') || $request->routeIs('edit_user') || $request->routeIs('update_user') || $request->routeIs('view_forwarders') || $request->routeIs('edit_forwarder') || $request->routeIs('update_forwarder') || $request->routeIs('remove_forwarder') || $request->routeIs('view_drivers') || $request->routeIs('edit_driver') || $request->routeIs('update_driver') || $request->routeIs('remove_driver')) {
                 if(!Auth::check() || Auth::user()->type_id !== 1) {
-                    abort(403, 'Unauthorized access.');
+                    abort(403, 'Unauthorized access');
                 }
             }
             elseif($request->routeIs('forwarder_view')) {
                 if(!Auth::check() || Auth::user()->type_id !== 2) {
-                    abort(403, 'Unauthorized access.');
+                    abort(403, 'Unauthorized access');
                 }
             }
             elseif($request->routeIs('driver_view')) {
                 if(!Auth::check() || Auth::user()->type_id !== 3) {
-                    abort(403, 'Unauthorized access.');
+                    abort(403, 'Unauthorized access');
                 }
             }
             elseif($request->routeIs('login')) {
                 if(Auth::check()) {
-                    abort(403,'Unauthorized access.');
+                    abort(403,'Unauthorized access');
                 }
             }
         return $next($request);

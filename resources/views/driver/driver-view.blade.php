@@ -43,6 +43,8 @@
                 font-size: 24px;
                 text-decoration: none;
                 color: #DAFFFB;
+                border-radius: 10%;
+                overflow: hidden;
             }
 
 

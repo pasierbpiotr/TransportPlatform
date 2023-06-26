@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class UserController extends Authenticatable
@@ -48,7 +50,30 @@ class UserController extends Authenticatable
     ];
 
     public function viewUserPage() {
-        $users = User::all();
+        $users = User::paginate(10);
         return view('admin.view-users', ['users'=>$users]);
+    }
+
+    public function editUser(string $id) {
+        $user = User::findOrFail($id);
+        return view('admin.edit-user', ['user'=>$user]);
+    }
+
+    public function updateUser(Request $request, string $id) {
+        if($id == 1) {
+            return redirect()->route('view_users')->with('error','Admin is not editable');
+        }
+        else {
+            $user = User::findOrFail($id);
+            $input = $request->all();
+
+            if (isset($input['password'])) {
+                $unhashed = $input['password'];
+                $input['password'] = Hash::make($unhashed);
+                $input['unhashed'] = $unhashed;
+            }
+            $user->fill($input)->save();
+            return redirect()->route('view_users')->with('update', 'User edited.');
+        }
     }
 }

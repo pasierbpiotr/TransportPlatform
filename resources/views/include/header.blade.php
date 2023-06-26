@@ -2,6 +2,15 @@
     <nav class="navbar navbar-expand-lg" style="background-color: #176B87;">
         <div class="container-fluid">
             <a style="color: #DAFFFB" class="navbar-brand" href="{{route('welcome_page')}}">Transportation Platform</a>
+            @if(Auth::check())
+                @if(Auth::user()->type_id == '1')
+                    <a href="{{ route('admin_view') }}" class="btn btn-primary">Menu</a>
+                @elseif(Auth::user()->type_id == '2')
+                    <a href="{{ route('forwarder_view') }}" class="btn btn-primary">Menu</a>
+                @elseif(Auth::user()->type_id == '3')
+                    <a href="{{ route('driver_view') }}" class="btn btn-primary">Menu</a>
+        @endif
+            @endif
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">

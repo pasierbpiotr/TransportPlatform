@@ -68,20 +68,24 @@
     <body>
         @include('include.header')
         <div class="container">
-            <form action="{{ route('update_user',$user->id) }}" method="POST">
+            <form action="{{ route('update_driver',$driver->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="brand">Type:</label>
-                    <input type="text" class="form-control custom-input" id="type_id" name="type_id" placeholder="Enter type" value="{{ $user->type_id }}">
+                    <label for="brand">Name:</label>
+                    <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $driver->name }}">
                 </div>
                 <div class="form-group">
-                    <label for="model">Login:</label>
-                    <input type="text" class="form-control custom-input" id="login" name="login" placeholder="Enter login" value="{{ $user->login }}">
+                    <label for="model">Surname:</label>
+                    <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $driver->surname }}">
                 </div>
                 <div class="form-group">
-                    <label for="category">Password:</label>
-                    <input type="text" class="form-control custom-input" id="password" name="password" placeholder="Enter password" value="{{ $user->unhashed }}">
+                    <label for="category">Car:</label>
+                    <input type="text" class="form-control custom-input" id="car" name="car" placeholder="Enter car" value="{{ $driver->car }}">
+                </div>
+                <div class="form-group">
+                    <label for="category">Forwarder:</label>
+                    <input type="text" class="form-control custom-input" id="forwarder_id" name="forwarder_id" placeholder="Enter forwarder" value="{{ $driver->forwarder_id }}">
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>

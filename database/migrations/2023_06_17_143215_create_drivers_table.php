@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('forwarder_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('forwarder_id')->references('id')->on('forwarders');
+            $table->date('updated_at')->nullable(true);
         });
     }
 

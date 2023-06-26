@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\ForwarderController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Welcome_Page;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,17 @@ Route::get('/admin-view', function() {
 })->name('admin_view');
 
 Route::get('/admin-view/view-users', [UserController::class, 'viewUserPage'])->name('view_users');
+Route::get('/admin-view/view-users/{id}/edit', [UserController::class, 'editUser'])->name('edit_user');
+Route::patch('/admin-view/view-users/{id}', [UserController::class, 'updateUser'])->name('update_user');
+
+Route::get('/admin-view/view-forwarders', [ForwarderController::class, 'viewForwardersPage'])->name('view_forwarders');
+Route::get('/admin-view/view-forwarders/{id}/edit', [ForwarderController::class, 'editForwarder'])->name('edit_forwarder');
+Route::patch('/admin-view/view-forwarders/{id}', [ForwarderController::class, 'updateForwarder'])->name('update_forwarder');
+Route::delete('/admin-view/view-forwarders/{id}', [ForwarderController::class, 'removeForwarder'])->name('remove_forwarder');
+
+Route::get('/admin-view/view-drivers', [DriverController::class, 'adminViewDriversPage'])->name('view_drivers');
+Route::get('/admin-view/view-drivers/{id}/edit', [DriverController::class, 'editDriver'])->name('edit_driver');
+Route::patch('/admin-view/view-drivers/{id}', [DriverController::class, 'updateDriver'])->name('update_driver');
+Route::delete('/admin-view/view-drivers/{id}', [DriverController::class, 'removeDriver'])->name('remove_driver');
+
+Route::get('/forwarder-view/drivers', [ForwarderController::class, 'forwarderViewDriversPage'])->name('show_drivers');

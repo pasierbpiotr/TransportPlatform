@@ -68,20 +68,20 @@
     <body>
         @include('include.header')
         <div class="container">
-            <form action="{{ route('update_user',$user->id) }}" method="POST">
+            <form action="{{ route('update_forwarder',$forwarder->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="brand">Type:</label>
-                    <input type="text" class="form-control custom-input" id="type_id" name="type_id" placeholder="Enter type" value="{{ $user->type_id }}">
+                    <label for="brand">Name:</label>
+                    <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $forwarder->name }}">
                 </div>
                 <div class="form-group">
-                    <label for="model">Login:</label>
-                    <input type="text" class="form-control custom-input" id="login" name="login" placeholder="Enter login" value="{{ $user->login }}">
+                    <label for="model">Surname:</label>
+                    <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $forwarder->surname }}">
                 </div>
                 <div class="form-group">
-                    <label for="category">Password:</label>
-                    <input type="text" class="form-control custom-input" id="password" name="password" placeholder="Enter password" value="{{ $user->unhashed }}">
+                    <label for="category">Company:</label>
+                    <input type="text" class="form-control custom-input" id="company_id" name="company_id" placeholder="Enter company" value="{{ $forwarder->company_id }}">
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>

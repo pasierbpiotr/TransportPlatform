@@ -34,8 +34,8 @@
 
             .tile {
                 display: block;
-                width: 300px;
-                height: 300px;
+                width: 20%;
+                height: 40%;
                 margin: 10px;
                 background-color: #176B87;
                 text-align: center;
@@ -43,6 +43,8 @@
                 font-size: 24px;
                 text-decoration: none;
                 color: #DAFFFB;
+                border-radius: 10%;
+                overflow: hidden;
             }
 
 
@@ -59,6 +61,8 @@
 
         <div class="container">
             <a class="tile" href="{{route('view_users')}}">View users</a>
+            <a class="tile" href="{{route('view_forwarders')}}">View forwarders</a>
+            <a class="tile" href="{{route('view_drivers')}}">View drivers</a>
         </div>
 
         @include('include.footer')
