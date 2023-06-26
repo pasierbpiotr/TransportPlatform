@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
+use App\Models\Forwarder;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +15,20 @@ class AuthController extends Controller
 {
     function login() {
         return view('login');
+    }
+
+    function registration() {
+        return view('register');
+    }
+
+    function registerDriver() {
+        $forwarders = Forwarder::all();
+        return view('register-driver', compact('forwarders'));
+    }
+
+    function registerForwarder() {
+        $companies = Company::all();
+        return view('register-forwarder', compact('companies'));
     }
 
     function loginPost(Request $request) {

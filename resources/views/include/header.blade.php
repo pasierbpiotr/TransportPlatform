@@ -31,9 +31,18 @@
                                     </form>
                                 </div>
                             @else
-                                <a class="nav-link" href="{{route('login')}}">
-                                    <button class="btn btn-primary" type="button">Log in</button>
-                                </a>
+                            <ul style="display: flex; align-items: center; list-style-type: none; margin: 0;">
+                                <li>
+                                    <a href="{{route('register')}}">
+                                        <button class="btn btn-primary">Register</button>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="nav-link" href="{{route('login')}}">
+                                        <button class="btn btn-primary" type="button">Log in</button>
+                                    </a>
+                                </li>
+                            </ul>
                             @endif
                         </li>
                     </ul>

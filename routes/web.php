@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/welcome-page', [CompanyController::class, 'startPage'])->name('welcome_page');
 
 Route::get('/login', [AuthController::class,'login'])->name('login');
+Route::get('/register', [AuthController::class,'registration'])->name('register');
+Route::get('/register/driver', [AuthController::class,'registerDriver'])->name('register_driver');
+Route::get('/register/forwarder', [AuthController::class,'registerForwarder'])->name('register_forwarder');
 Route::post('/login', [AuthController::class,'loginPost'])->name('login_post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
