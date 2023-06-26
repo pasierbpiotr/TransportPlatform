@@ -11,13 +11,15 @@ class Forwarder extends Model
 {
     protected $fillable = ['id', 'name', 'surname', 'user_id', 'company_id'];
 
-    public function companyName()
-    {
+    public function companyName() {
         return $this->belongsTo(Company::class, 'company_id');
     }
 
-    public function drivers()
-    {
+    public function drivers() {
         return $this->hasMany(Driver::class);
+    }
+
+    public function user() {
+        return $this->hasOne(User::class);
     }
 }

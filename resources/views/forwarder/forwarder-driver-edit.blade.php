@@ -62,6 +62,7 @@
                 width: 100%;
             }
 
+
             .header {
                 padding: 0px;
                 position: fixed;
@@ -77,31 +78,24 @@
     <body>
         @include('include.header')
         <div class="container">
-            <form action="{{ route('update_forwarder',$forwarder->id) }}" method="POST">
+            <form action="{{ route('update_driver_forw',$driver->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $forwarder->name }}">
+                    <label for="brand">Name:</label>
+                    <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $driver->name }}">
                 </div>
                 <div class="form-group">
-                    <label for="surname">Surname:</label>
-                    <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $forwarder->surname }}">
+                    <label for="model">Surname:</label>
+                    <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $driver->surname }}">
                 </div>
                 <div class="form-group">
-                    <label for="company">Company:</label>
-                    <select class="custom-input form-select custom-select" id="company_id" name="company_id">
-                        @foreach ($companies as $c)
-                            <option value="{{ $c->id }}" {{ $forwarder->company_id == $c->id ? 'selected' : '' }}>
-                                {{ $c->name }}
-                            </option>
-                        @endforeach
-                    </select>
+                    <label for="category">Car:</label>
+                    <input type="text" class="form-control custom-input" id="car" name="car" placeholder="Enter car" value="{{ $driver->car }}">
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>
         </div>
-
         @include('include.footer')
     </body>
 

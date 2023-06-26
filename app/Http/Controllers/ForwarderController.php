@@ -15,15 +15,30 @@ class ForwarderController extends Controller
         return view('admin.view-forwarders', compact('forwarders','companies'));
     }
 
-    public function forwarderViewDriversPage() {
-        $forwarder = Auth::user()->forwarder;
-        $drivers = $forwarder->drivers;
-        return view('forwarder.forwarder-drivers', ['drivers'=>$drivers]);
-    }
-
     public function editForwarder(string $id) {
         $forwarder = Forwarder::findOrFail($id);
-        return view('admin.edit-forwarder', ['forwarder'=>$forwarder]);
+        $companies = Company::all();
+        return view('admin.edit-forwarder', compact('forwarder','companies'));
+    }
+
+    public function showTransportsForw() {
+        $userId = Auth::user()->id;
+        $forwarder = Forwarder::where('user_id',$userId)->first();
+        return view('forwarder.forwarder-transports', ['forwarder'=>$forwarder]);
+    }
+
+    public function forwarderViewDriversPage() {
+        $userId = Auth::user()->id;
+        $forwarder = Forwarder::where('user_id',$userId)->first();
+
+
+        if($forwarder) {
+            $drivers = $forwarder->drivers;
+            return view('forwarder.forwarder-drivers', ['drivers'=>$drivers]);
+        }
+        else {
+            return redirect()->back()->with('error','Forwarder not found.');
+        }
     }
 
     public function updateForwarder(Request $request, string $id) {

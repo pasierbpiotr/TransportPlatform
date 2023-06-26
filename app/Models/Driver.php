@@ -13,4 +13,8 @@ class Driver extends Model
     {
         return $this->hasOne(Forwarder::class);
     }
+
+    public function transports() {
+        return $this->belongsToMany(Transport::class, 'driver_transports');
+    }
 }

@@ -62,6 +62,15 @@
                 width: 100%;
             }
 
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
         </style>
     </head>
 
@@ -72,28 +81,32 @@
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="brand">Name:</label>
+                    <label for="name">Name:</label>
                     <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $driver->name }}">
                 </div>
                 <div class="form-group">
-                    <label for="model">Surname:</label>
+                    <label for="surname">Surname:</label>
                     <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $driver->surname }}">
                 </div>
                 <div class="form-group">
-                    <label for="category">Car:</label>
+                    <label for="car">Car:</label>
                     <input type="text" class="form-control custom-input" id="car" name="car" placeholder="Enter car" value="{{ $driver->car }}">
                 </div>
                 <div class="form-group">
-                    <label for="category">Forwarder:</label>
-                    <input type="text" class="form-control custom-input" id="forwarder_id" name="forwarder_id" placeholder="Enter forwarder" value="{{ $driver->forwarder_id }}">
+                    <label for="forwarder">Forwarder:</label>
+                    <select class="custom-input form-select custom-select" id="forwarder_id" name="forwarder_id">
+                        @foreach ($forwarders as $f)
+                            <option value="{{ $f->id }}" {{ $driver->forwarder_id == $f->id ? 'selected' : '' }}>
+                                {{ $f->name }} {{ $f->surname }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>
         </div>
 
-        <div class="footer">
-            @include('include.footer')
-        </div>
+        @include('include.footer')
     </body>
 
 </html>

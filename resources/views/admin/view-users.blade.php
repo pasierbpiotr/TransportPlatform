@@ -56,75 +56,84 @@
                 width: 100%;
             }
 
+
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
         </style>
     </head>
 
     <body>
         @include('include.header')
-        <div class="container d-flex justify-content-center align-items-center" style="margin-top:3%;">
-            @if (session('update'))
-                <div class="alert alert-success">
-                    {{ session('update') }}
-                </div>
-            @endif
-            @if (session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
-        </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>User Type</th>
-                                <th>Login</th>
-                                <th>Password</th>
-                                <th>Edit</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $u)
-                            <tr>
-                                <td>{{$u->id}}</td>
-                                <td>
-                                    @if($u->type_id == 1) Admin
-                                    @elseif($u->type_id == 2) Forwarder
-                                    @elseif($u->type_id == 3) Driver
-                                    @endif
-                                </td>
-                                <td>{{$u->login}}</td>
-                                <td>{{$u->unhashed}}</td>
-                                <td>
-                                    <a href="{{ route('edit_user', $u->id) }}">
-                                    <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-square-o"
-                                            aria-hidden="true"></i>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-                                            <path
-                                                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                    </a>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <div class="d-flex justify-content-center">
-                        {{ $users->links() }}
+        <div style="margin-top: 60px;">
+            <div class="container d-flex justify-content-center align-items-center" style="margin-top:3%;">
+                @if (session('update'))
+                    <div class="alert alert-success">
+                        {{ session('update') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>User Type</th>
+                                    <th>Login</th>
+                                    <th>Password</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($users as $u)
+                                <tr>
+                                    <td>{{$u->id}}</td>
+                                    <td>
+                                        @if($u->type_id == 1) Admin
+                                        @elseif($u->type_id == 2) Forwarder
+                                        @elseif($u->type_id == 3) Driver
+                                        @endif
+                                    </td>
+                                    <td>{{$u->login}}</td>
+                                    <td>{{$u->unhashed}}</td>
+                                    <td>
+                                        <a href="{{ route('edit_user', $u->id) }}">
+                                        <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-square-o"
+                                                aria-hidden="true"></i>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        <div class="d-flex justify-content-center">
+                            {{ $users->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="footer">
-            @include('include.footer')
-        </div>
+        @include('include.footer')
     </body>
 
 

@@ -46,89 +46,103 @@
                 color: #fff;
             }
 
-            footer {
-                background-color:#001C30;
-                color: #333;
+
+            .footer {
+                padding: 0px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
             }
 
             .card {
-                background-color: #176B87;
+                            background-color: #176B87;
+                        }
+
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
             }
         </style>
     </head>
 
     <body>
         @include('include.header')
-        <div>
-            <h1>Welcome to our page!</h1>
-            <p>We are XXX and support the work of transportation companies.</p>
-        </div>
-        <div>
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/tir1.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-caption-title">Welcome to TransPlat</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/tir2.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-caption-title">Empowering the Transportation Industry</h5>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/tir3.jpg" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5 class="carousel-caption-title">Enabling Seamless Transport Solutions</h5>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+        <div style="margin-top: 60px;">
+            <div>
+                <h1>Welcome to our page!</h1>
+                <p>We are XXX and support the work of transportation companies.</p>
             </div>
-        </div>
-
-        <h2>The companies we work with:</h2>
-        <div id="wycieczki" class="container mb-5">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center">
-                @forelse($companies as $index => $c)
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
-                        <div class="card">
-                            <img src="{{ asset($c->picture) }}" class="card-img-top" alt="zdjęcie">
-                            <div class="card-body">
-                                <h5 class="card-title"><b>{{$c->name}}</b></h5>
-                                <p class="card-text">
-                                    {{$c->street}}<br />
-                                    {{$c->city}}<br />
-                                    NIP: {{$c->NIP}}<br />
-                                </p>
+            <div>
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/tir1.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-caption-title">Welcome to TransPlat</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/tir2.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-caption-title">Empowering the Transportation Industry</h5>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/tir3.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5 class="carousel-caption-title">Enabling Seamless Transport Solutions</h5>
                             </div>
                         </div>
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
 
-                    @if(($index + 1) % 5 === 0)
+            <h2>The companies we work with:</h2>
+            <div id="wycieczki" class="container mb-5">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center">
+                    @forelse($companies as $index => $c)
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 mb-4">
+                            <div class="card">
+                                <img src="{{ asset($c->picture) }}" class="card-img-top" alt="zdjęcie">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{$c->name}}</b></h5>
+                                    <p class="card-text">
+                                        {{$c->street}}<br />
+                                        {{$c->city}}<br />
+                                        NIP: {{$c->NIP}}<br />
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center">
-                    @endif
-                @empty
-                    <p>Brak firm</p>
-                @endforelse
+
+                        @if(($index + 1) % 5 === 0)
+                            </div>
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center">
+                        @endif
+                    @empty
+                        <p>Brak firm</p>
+                    @endforelse
+                </div>
             </div>
         </div>
-
 
 
     </body>

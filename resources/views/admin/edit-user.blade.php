@@ -62,6 +62,16 @@
                 width: 100%;
             }
 
+
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
         </style>
     </head>
 
@@ -87,9 +97,7 @@
             </form>
         </div>
 
-        <div class="footer">
-            @include('include.footer')
-        </div>
+        @include('include.footer')
     </body>
 
 </html>

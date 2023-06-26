@@ -50,4 +50,8 @@ Route::get('/admin-view/view-drivers/{id}/edit', [DriverController::class, 'edit
 Route::patch('/admin-view/view-drivers/{id}', [DriverController::class, 'updateDriver'])->name('update_driver');
 Route::delete('/admin-view/view-drivers/{id}', [DriverController::class, 'removeDriver'])->name('remove_driver');
 
-Route::get('/forwarder-view/drivers', [ForwarderController::class, 'forwarderViewDriversPage'])->name('show_drivers');
+Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransportsForw'])->name('forwarder_show_trans');
+Route::get('/forwarder-view/drivers', [DriverController::class, 'forwarderViewDriversPage'])->name('show_drivers');
+Route::get('/forwarder-view/drivers/{id}/edit', [DriverController::class, 'editDriverForwarder'])->name('edit_driver_forw');
+Route::patch('/forwarder-view/drivers/{id}', [DriverController::class, 'updateDriverForwarder'])->name('update_driver_forw');
+Route::delete('/forwarder-view/view-drivers/{id}', [DriverController::class, 'removeDriverForwarder'])->name('remove_driver_forw');

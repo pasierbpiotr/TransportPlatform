@@ -45,48 +45,69 @@
             color: transparent;
         }
 
+
+        .footer {
+                padding: 0px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+        }
+
+
+        .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
     </style>
 </head>
 <body>
     @include('include.header')
-    <div class="mt-5 container">
-        @if ($errors->any())
-            <div class="col-12">
-                @foreach ($errors->all() as $error)
-                    <div class="alert alert-danger">
-                        {{$error}}
-                    </div>
-                @endforeach
-            </div>
-        @endif
+    <div style="margin-top: 70px;">
+        <div class="mt-5 container">
+            @if ($errors->any())
+                <div class="col-12">
+                    @foreach ($errors->all() as $error)
+                        <div class="alert alert-danger">
+                            {{$error}}
+                        </div>
+                    @endforeach
+                </div>
+            @endif
 
-        @if (session()->has('error'))
-            <div class="alert alert-danger">
-                {{session('error')}}
-            </div>
-        @endif
+            @if (session()->has('error'))
+                <div class="alert alert-danger">
+                    {{session('error')}}
+                </div>
+            @endif
 
-        @if (session()->has('success'))
-            <div class="alert alert-success">
-                {{session('success')}}
-            </div>
-        @endif
-    </div>
-    <div class="container d-flex justify-content-center align-items-center vh-100">
-        <form method="POST" action="{{route('login_post')}}" class="needs-validation" novalidate>
-            @csrf
-            <div class="form-group mb-2">
-                <label for="login" class="visually-hidden">Login</label>
-                <input id="login" name="login" type="text" class="form-control custom-input" placeholder="Login" required>
-            </div>
-            <div class="form-group mb-2">
-                <label for="password" class="visually-hidden">Password</label>
-                <input id="password" name="password" type="password" class="form-control custom-input" placeholder="Password" required>
-            </div>
-            <div class="text-center mt-4 mb-4">
-                <input class="btnwlasny btn btn-primary" type="submit" value="Log in">
-            </div>
-        </form>
+            @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{session('success')}}
+                </div>
+            @endif
+        </div>
+        <div class="container d-flex justify-content-center align-items-center vh-100">
+            <form method="POST" action="{{route('login_post')}}" class="needs-validation" novalidate>
+                @csrf
+                <div class="form-group mb-2">
+                    <label for="login" class="visually-hidden">Login</label>
+                    <input id="login" name="login" type="text" class="form-control custom-input" placeholder="Login" required>
+                </div>
+                <div class="form-group mb-2">
+                    <label for="password" class="visually-hidden">Password</label>
+                    <input id="password" name="password" type="password" class="form-control custom-input" placeholder="Password" required>
+                </div>
+                <div class="text-center mt-4 mb-4">
+                    <input class="btnwlasny btn btn-primary" type="submit" value="Log in">
+                </div>
+            </form>
+        </div>
     </div>
     @include('include.footer')
 </body>

@@ -52,6 +52,26 @@
                 background-color: #DAFFFB;
                 color:#001C30;
             }
+
+
+            .footer {
+                padding: 0px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+
+
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
         </style>
     </head>
 
@@ -59,7 +79,12 @@
         @include('include.header')
 
         <div class="container">
-            <a class="tile" href="{{ route('show_drivers')}}">View drivers</a>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
+                <a class="tile" href="{{ route('show_drivers')}}">View drivers</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
+                <a class="tile" href="{{ route('forwarder_show_trans')}}">View transports</a>
+            </div>
         </div>
 
         @include('include.footer')

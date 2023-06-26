@@ -34,8 +34,8 @@
 
             .tile {
                 display: block;
-                width: 20%;
-                height: 40%;
+                width: 200px;
+                height: 350px;
                 margin: 10px;
                 background-color: #176B87;
                 text-align: center;
@@ -53,6 +53,23 @@
                 color:#001C30;
             }
 
+            .footer {
+                padding: 0px;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+
+            .header {
+                padding: 0px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 9999;
+            }
+
         </style>
     </head>
 
@@ -60,9 +77,17 @@
         @include('include.header')
 
         <div class="container">
-            <a class="tile" href="{{route('view_users')}}">View users</a>
-            <a class="tile" href="{{route('view_forwarders')}}">View forwarders</a>
-            <a class="tile" href="{{route('view_drivers')}}">View drivers</a>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
+                    <a class="tile" href="{{route('view_users')}}">View users</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
+                    <a class="tile" href="{{route('view_forwarders')}}">View forwarders</a>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
+                    <a class="tile" href="{{route('view_drivers')}}">View drivers</a>
+                </div>
+            </div>
         </div>
 
         @include('include.footer')
