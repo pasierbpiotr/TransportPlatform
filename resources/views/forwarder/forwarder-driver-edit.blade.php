@@ -72,6 +72,10 @@
                 z-index: 9999;
             }
 
+            label {
+                color:#DAFFFB;
+            }
+
         </style>
     </head>
 

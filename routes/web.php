@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ForwarderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TransportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,8 +51,14 @@ Route::get('/admin-view/view-drivers/{id}/edit', [DriverController::class, 'edit
 Route::patch('/admin-view/view-drivers/{id}', [DriverController::class, 'updateDriver'])->name('update_driver');
 Route::delete('/admin-view/view-drivers/{id}', [DriverController::class, 'removeDriver'])->name('remove_driver');
 
-Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransportsForw'])->name('forwarder_show_trans');
 Route::get('/forwarder-view/drivers', [DriverController::class, 'forwarderViewDriversPage'])->name('show_drivers');
 Route::get('/forwarder-view/drivers/{id}/edit', [DriverController::class, 'editDriverForwarder'])->name('edit_driver_forw');
 Route::patch('/forwarder-view/drivers/{id}', [DriverController::class, 'updateDriverForwarder'])->name('update_driver_forw');
-Route::delete('/forwarder-view/view-drivers/{id}', [DriverController::class, 'removeDriverForwarder'])->name('remove_driver_forw');
+Route::delete('/forwarder-view/drivers/{id}', [DriverController::class, 'removeDriverForwarder'])->name('remove_driver_forw');
+
+Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransportsForw'])->name('forwarder_show_trans');
+Route::get('/forwarder-view/transports/{id}/edit', [TransportController::class, 'editTransport'])->name('edit_transport_forw');
+Route::patch('/forwarder-view/transports/{id}', [TransportController::class, 'updateTransport'])->name('update_transport_forw');
+Route::delete('/forwarder-view/transports/{id}', [TransportController::class, 'removeTransport'])->name('remove_transport_forw');
+
+Route::get('/driver-view/transports', [DriverController::class, 'showTransportsDriver'])->name('driver_show_trans');

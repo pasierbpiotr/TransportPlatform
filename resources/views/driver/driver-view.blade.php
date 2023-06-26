@@ -80,7 +80,7 @@
 
         <div class="container">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
-                <a class="tile" href="">View transports</a>
+                <a class="tile" href="{{route('driver_show_trans')}}">View transports</a>
             </div>
         </div>
 

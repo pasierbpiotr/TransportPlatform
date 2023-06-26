@@ -119,7 +119,7 @@
                                             <td>{{$t->mass}}</td>
                                             <td>{{$t->transport_date}}</td>
                                             <td>
-                                                <a href="">
+                                                <a href="{{route('edit_transport_forw',$t->id)}}">
                                                 <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-square-o"
                                                         aria-hidden="true"></i>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -132,7 +132,7 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="" method="POST">
+                                                <form action="{{ route('remove_transport_forw', $t->id)}}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"

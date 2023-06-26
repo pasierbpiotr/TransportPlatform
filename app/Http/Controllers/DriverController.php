@@ -62,9 +62,16 @@ class DriverController extends Controller
     }
 
     public function removeDriverForwarder(string $id) {
-        $forwarder = Driver::findOrFail($id);
-        $forwarder->delete();
+        $driver = Driver::findOrFail($id);
+        $driver->transports()->detach();
+        $driver->delete();
 
         return redirect()->back()->with('delete', 'Driver removed.');
+    }
+
+    public function showTransportsDriver() {
+        $userId = Auth::user()->id;
+        $driver = Driver::where('user_id',$userId)->first();
+        return view('driver.driver-transport', ['driver'=>$driver]);
     }
 }

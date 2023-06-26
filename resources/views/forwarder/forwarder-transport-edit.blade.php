@@ -62,6 +62,7 @@
                 width: 100%;
             }
 
+
             .header {
                 padding: 0px;
                 position: fixed;
@@ -81,31 +82,42 @@
     <body>
         @include('include.header')
         <div class="container">
-            <form action="{{ route('update_forwarder',$forwarder->id) }}" method="POST">
+            <form action="{{ route('update_transport_forw', $transport->id)}}" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control custom-input" id="name" name="name" placeholder="Enter name" value="{{ $forwarder->name }}">
-                </div>
-                <div class="form-group">
-                    <label for="surname">Surname:</label>
-                    <input type="text" class="form-control custom-input" id="surname" name="surname" placeholder="Enter surname" value="{{ $forwarder->surname }}">
-                </div>
-                <div class="form-group">
-                    <label for="company">Company:</label>
-                    <select class="custom-input form-select custom-select" id="company_id" name="company_id">
-                        @foreach ($companies as $c)
-                            <option value="{{ $c->id }}" {{ $forwarder->company_id == $c->id ? 'selected' : '' }}>
-                                {{ $c->name }}
+                    <label for="starting_place">Driver:</label>
+                    <select class="custom-input form-select custom-select" id="driver_id" name="driver_id">
+                        @foreach ($forwarder->drivers as $d)
+                            <option value="{{ $d->id }}" {{ $transport->driver->contains('id', $d->id) ? 'selected' : '' }}>
+                                {{ $d->name }} {{ $d->surname }}
                             </option>
                         @endforeach
-                    </select>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="starting_place">Start:</label>
+                    <input type="text" class="form-control custom-input" id="starting_place" name="starting_place" placeholder="Enter start" value="{{ $transport->starting_place }}">
+                </div>
+                <div class="form-group">
+                    <label for="finishing_place">Finish:</label>
+                    <input type="text" class="form-control custom-input" id="finishing_place" name="finishing_place" placeholder="Enter finish" value="{{ $transport->finishing_place }}">
+                </div>
+                <div class="form-group">
+                    <label for="merchandise">Merchandise:</label>
+                    <input type="text" class="form-control custom-input" id="merchandise" name="merchandise" placeholder="Enter merchandise" value="{{ $transport->merchandise }}">
+                </div>
+                <div class="form-group">
+                    <label for="mass">Mass:</label>
+                    <input type="number" class="form-control custom-input" id="mass" name="mass" placeholder="Enter mass" value="{{ $transport->mass }}" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label for="transport_date">Date:</label>
+                    <input type="date" class="form-control custom-input" id="transport_date" name="transport_date" placeholder="Enter date" value="{{ $transport->transport_date }}">
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>
         </div>
-
         @include('include.footer')
     </body>
 

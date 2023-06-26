@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Transport extends Model
 {
-    protected $fillable = ['id', 'starting_place', 'finishing_place', 'merchendise', 'mass', 'transport_date'];
+    protected $fillable = ['id', 'starting_place', 'finishing_place', 'merchandise', 'mass', 'transport_date'];
 
+    public function driver() {
+        return $this->belongsToMany(Driver::class, 'driver_transports');
+    }
 }

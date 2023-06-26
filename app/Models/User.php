@@ -51,5 +51,13 @@ class User extends Authenticatable
     function nameDriver() {
         return $this->hasOne(Driver::class);
     }
+
+    function driver() {
+        return $this->hasOne(Driver::class);
+    }
+
+    function forwarder() {
+        return $this->hasOne(Forwarder::class);
+    }
 }
 

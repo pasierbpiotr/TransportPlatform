@@ -51,6 +51,7 @@ class ForwarderController extends Controller
     public function removeForwarder(string $id) {
         $forwarder = Forwarder::findOrFail($id);
         $forwarder->drivers()->delete();
+        $forwarder->user()->delete();
         $forwarder->delete();
 
         return redirect()->back()->with('delete', 'Forwarder removed.');

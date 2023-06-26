@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('merchandise', 40)->nullable(false);
             $table->double('mass')->nullable(false);
             $table->date('transport_date')->nullable(false);
+            $table->date('updated_at')->nullable(true);
         });
     }
 

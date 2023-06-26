@@ -21,12 +21,12 @@ class RestrictAccessMiddleware
                     abort(403, 'Unauthorized access');
                 }
             }
-            elseif($request->routeIs('forwarder_view')) {
+            elseif($request->routeIs('forwarder_view') || $request->routeIs('show_drivers') || $request->routeIs('edit_driver_forw') || $request->routeIs('update_driver_forw') || $request->routeIs('remove_driver_forw') || $request->routeIs('forwarder_show_trans') || $request->routeIs('edit_transport_forw') || $request->routeIs('update_transport_forw') || $request->routeIs('remove_transport_forw')) {
                 if(!Auth::check() || Auth::user()->type_id !== 2) {
                     abort(403, 'Unauthorized access');
                 }
             }
-            elseif($request->routeIs('driver_view')) {
+            elseif($request->routeIs('driver_view') || $request->routeIs('driver_show_trans')) {
                 if(!Auth::check() || Auth::user()->type_id !== 3) {
                     abort(403, 'Unauthorized access');
                 }
