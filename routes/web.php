@@ -63,6 +63,8 @@ Route::patch('/forwarder-view/drivers/{id}', [ForwarderController::class, 'updat
 Route::delete('/forwarder-view/drivers/{id}', [ForwarderController::class, 'removeDriver'])->name('remove_driver_forw');
 
 Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransports'])->name('forwarder_show_trans');
+Route::post('/forwarder-view/transports/add', [ForwarderController::class, 'addTransport'])->name('forwarder_add_trans');
+Route::post('/forwarder-view/transports/added', [ForwarderController::class, 'createTransport'])->name('forwarder_create_trans');
 Route::get('/forwarder-view/transports/{id}/edit', [ForwarderController::class, 'editTransport'])->name('edit_transport_forw');
 Route::patch('/forwarder-view/transports/{id}', [ForwarderController::class, 'updateTransport'])->name('update_transport_forw');
 Route::delete('/forwarder-view/transports/{id}', [ForwarderController::class, 'removeTransport'])->name('remove_transport_forw');
