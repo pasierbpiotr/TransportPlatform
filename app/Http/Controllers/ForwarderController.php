@@ -3,31 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\Driver;
 use App\Models\Forwarder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ForwarderController extends Controller
 {
-    public function viewForwardersPage() {
-        $forwarders = Forwarder::paginate(10);
-        $companies = Company::all();
-        return view('admin.view-forwarders', compact('forwarders','companies'));
-    }
-
-    public function editForwarder(string $id) {
-        $forwarder = Forwarder::findOrFail($id);
-        $companies = Company::all();
-        return view('admin.edit-forwarder', compact('forwarder','companies'));
-    }
-
-    public function showTransportsForw() {
+    public function showTransports() {
         $userId = Auth::user()->id;
         $forwarder = Forwarder::where('user_id',$userId)->first();
         return view('forwarder.forwarder-transports', ['forwarder'=>$forwarder]);
     }
 
-    public function forwarderViewDriversPage() {
+    public function viewDrivers() {
         $userId = Auth::user()->id;
         $forwarder = Forwarder::where('user_id',$userId)->first();
 
@@ -41,19 +30,24 @@ class ForwarderController extends Controller
         }
     }
 
-    public function updateForwarder(Request $request, string $id) {
-        $forwarder = Forwarder::findOrFail($id);
+    public function editDriver(string $id) {
+        $driver = Driver::findOrFail($id);
+        return view('forwarder.forwarder-driver-edit', ['driver'=>$driver]);
+    }
+
+    public function updateDriver(Request $request, string $id) {
+        $driver = Driver::findOrFail($id);
         $input = $request->all();
-        $forwarder->fill($input)->save();
-        return redirect()->route('view_forwarders')->with('update', 'Forwarder edited.');
+        $driver->fill($input)->save();
+        return redirect()->route('show_drivers')->with('update', 'Driver edited.');
     }
 
-    public function removeForwarder(string $id) {
-        $forwarder = Forwarder::findOrFail($id);
-        $forwarder->drivers()->delete();
-        $forwarder->user()->delete();
-        $forwarder->delete();
+    public function removeDriver(string $id) {
+        $driver = Driver::findOrFail($id);
+        $driver->transports()->detach();
+        $driver->delete();
 
-        return redirect()->back()->with('delete', 'Forwarder removed.');
+        return redirect()->back()->with('delete', 'Driver removed.');
     }
+
 }

@@ -106,7 +106,7 @@
             @endif
         </div>
         <div class="container d-flex justify-content-center align-items-center vh-100">
-            <form method="POST" action="" class="needs-validation" novalidate>
+            <form method="POST" action="{{route('register_forwarder')}}" class="needs-validation" novalidate>
                 @csrf
                 <div class="form-group mb-2">
                     <label for="name" class="visually-hidden">Name</label>

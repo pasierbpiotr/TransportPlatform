@@ -31,7 +31,7 @@ class RestrictAccessMiddleware
                     abort(403, 'Unauthorized access');
                 }
             }
-            elseif($request->routeIs('login')) {
+            elseif($request->routeIs('login') || $request->routeIs('register') || $request->routeIs('registration_driver') || $request->routeIs('registration_forwarder') || $request->routeIs('login_post') || $request->routeIs('register_driver') || $request->routeIs('register_forwarder')) {
                 if(Auth::check()) {
                     abort(403,'Unauthorized access');
                 }

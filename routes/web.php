@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\DriverController;
@@ -23,8 +24,10 @@ Route::get('/welcome-page', [CompanyController::class, 'startPage'])->name('welc
 
 Route::get('/login', [AuthController::class,'login'])->name('login');
 Route::get('/register', [AuthController::class,'registration'])->name('register');
-Route::get('/register/driver', [AuthController::class,'registerDriver'])->name('register_driver');
-Route::get('/register/forwarder', [AuthController::class,'registerForwarder'])->name('register_forwarder');
+Route::get('/register/driver', [AuthController::class,'registrationDriver'])->name('registration_driver');
+Route::post('/registering/driver', [AuthController::class,'registerDriver'])->name('register_driver');
+Route::get('/register/forwarder', [AuthController::class,'registrationForwarder'])->name('registration_forwarder');
+Route::post('/registering/forwarder', [AuthController::class,'registerForwarder'])->name('register_forwarder');
 Route::post('/login', [AuthController::class,'loginPost'])->name('login_post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
@@ -40,28 +43,28 @@ Route::get('/admin-view', function() {
     return view('admin/admin-view');
 })->name('admin_view');
 
-Route::get('/admin-view/view-users', [UserController::class, 'viewUserPage'])->name('view_users');
-Route::get('/admin-view/view-users/{id}/edit', [UserController::class, 'editUser'])->name('edit_user');
-Route::patch('/admin-view/view-users/{id}', [UserController::class, 'updateUser'])->name('update_user');
+Route::get('/admin-view/view-users', [AdminController::class, 'viewUsers'])->name('view_users');
+Route::get('/admin-view/view-users/{id}/edit', [AdminController::class, 'editUser'])->name('edit_user');
+Route::patch('/admin-view/view-users/{id}', [AdminController::class, 'updateUser'])->name('update_user');
 
-Route::get('/admin-view/view-forwarders', [ForwarderController::class, 'viewForwardersPage'])->name('view_forwarders');
-Route::get('/admin-view/view-forwarders/{id}/edit', [ForwarderController::class, 'editForwarder'])->name('edit_forwarder');
-Route::patch('/admin-view/view-forwarders/{id}', [ForwarderController::class, 'updateForwarder'])->name('update_forwarder');
-Route::delete('/admin-view/view-forwarders/{id}', [ForwarderController::class, 'removeForwarder'])->name('remove_forwarder');
+Route::get('/admin-view/view-forwarders', [AdminController::class, 'viewForwarders'])->name('view_forwarders');
+Route::get('/admin-view/view-forwarders/{id}/edit', [AdminController::class, 'editForwarder'])->name('edit_forwarder');
+Route::patch('/admin-view/view-forwarders/{id}', [AdminController::class, 'updateForwarder'])->name('update_forwarder');
+Route::delete('/admin-view/view-forwarders/{id}', [AdminController::class, 'removeForwarder'])->name('remove_forwarder');
 
-Route::get('/admin-view/view-drivers', [DriverController::class, 'adminViewDriversPage'])->name('view_drivers');
-Route::get('/admin-view/view-drivers/{id}/edit', [DriverController::class, 'editDriver'])->name('edit_driver');
-Route::patch('/admin-view/view-drivers/{id}', [DriverController::class, 'updateDriver'])->name('update_driver');
-Route::delete('/admin-view/view-drivers/{id}', [DriverController::class, 'removeDriver'])->name('remove_driver');
+Route::get('/admin-view/view-drivers', [AdminController::class, 'viewDrivers'])->name('view_drivers');
+Route::get('/admin-view/view-drivers/{id}/edit', [AdminController::class, 'editDriver'])->name('edit_driver');
+Route::patch('/admin-view/view-drivers/{id}', [AdminController::class, 'updateDriver'])->name('update_driver');
+Route::delete('/admin-view/view-drivers/{id}', [AdminController::class, 'removeDriver'])->name('remove_driver');
 
-Route::get('/forwarder-view/drivers', [DriverController::class, 'forwarderViewDriversPage'])->name('show_drivers');
-Route::get('/forwarder-view/drivers/{id}/edit', [DriverController::class, 'editDriverForwarder'])->name('edit_driver_forw');
-Route::patch('/forwarder-view/drivers/{id}', [DriverController::class, 'updateDriverForwarder'])->name('update_driver_forw');
-Route::delete('/forwarder-view/drivers/{id}', [DriverController::class, 'removeDriverForwarder'])->name('remove_driver_forw');
+Route::get('/forwarder-view/drivers', [ForwarderController::class, 'viewDrivers'])->name('show_drivers');
+Route::get('/forwarder-view/drivers/{id}/edit', [ForwarderController::class, 'editDriver'])->name('edit_driver_forw');
+Route::patch('/forwarder-view/drivers/{id}', [ForwarderController::class, 'updateDriver'])->name('update_driver_forw');
+Route::delete('/forwarder-view/drivers/{id}', [ForwarderController::class, 'removeDriver'])->name('remove_driver_forw');
 
-Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransportsForw'])->name('forwarder_show_trans');
-Route::get('/forwarder-view/transports/{id}/edit', [TransportController::class, 'editTransport'])->name('edit_transport_forw');
-Route::patch('/forwarder-view/transports/{id}', [TransportController::class, 'updateTransport'])->name('update_transport_forw');
-Route::delete('/forwarder-view/transports/{id}', [TransportController::class, 'removeTransport'])->name('remove_transport_forw');
+Route::get('/forwarder-view/transports', [ForwarderController::class, 'showTransports'])->name('forwarder_show_trans');
+Route::get('/forwarder-view/transports/{id}/edit', [ForwarderController::class, 'editTransport'])->name('edit_transport_forw');
+Route::patch('/forwarder-view/transports/{id}', [ForwarderController::class, 'updateTransport'])->name('update_transport_forw');
+Route::delete('/forwarder-view/transports/{id}', [ForwarderController::class, 'removeTransport'])->name('remove_transport_forw');
 
-Route::get('/driver-view/transports', [DriverController::class, 'showTransportsDriver'])->name('driver_show_trans');
+Route::get('/driver-view/transports', [DriverController::class, 'showTransports'])->name('driver_show_trans');

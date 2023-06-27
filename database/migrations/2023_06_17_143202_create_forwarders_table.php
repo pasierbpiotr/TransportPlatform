@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('forwarders', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->bigIncrements('id');
             $table->string('name', 30)->nullable(false);
             $table->string('surname', 30)->nullable(false);
-            $table->integer('user_id')->nullable(false);
+            $table->unsignedBigInteger('user_id')->nullable(false);
             $table->integer('company_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('company_id')->references('id')->on('companies');
-            $table->date('updated_at')->nullable(true);
+            $table->timestamps();
         });
     }
 

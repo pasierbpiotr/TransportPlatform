@@ -66,6 +66,36 @@
                 z-index: 9999;
             }
 
+            .pagination-container {
+                margin-top: 20px;
+            }
+
+            .pagination {
+                display: flex;
+                justify-content: center;
+            }
+
+            .pagination .page-item {
+                margin: 0 5px;
+            }
+
+            .pagination .page-link {
+                color: #fff;
+                background-color: #001C30;
+                border-color: #001C30;
+            }
+
+            .pagination .page-link:hover {
+                background-color: #DAFFFB;
+                color: #001C30;
+            }
+
+            .pagination .page-item.active .page-link {
+                background-color: #DAFFFB;
+                color: #001C30;
+                border-color: #DAFFFB;
+            }
+
         </style>
     </head>
 
@@ -126,8 +156,8 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center">
-                            {{ $users->links() }}
+                        <div class="pagination-container d-flex justify-content-center mt-5">
+                            {{ $users->links('pagination::bootstrap-4') }}
                         </div>
                     </div>
                 </div>

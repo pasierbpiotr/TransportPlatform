@@ -76,10 +76,10 @@
 
         <div class="container">
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
-                <a class="tile" href="{{ route('register_driver')}}">Register as driver</a>
+                <a class="tile" href="{{ route('registration_driver')}}">Register as driver</a>
             </div>
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4" style="margin-right:5%;">
-                <a class="tile" href="{{ route('register_forwarder')}}">Register as forwarder</a>
+                <a class="tile" href="{{ route('registration_forwarder')}}">Register as forwarder</a>
             </div>
         </div>
     </div>

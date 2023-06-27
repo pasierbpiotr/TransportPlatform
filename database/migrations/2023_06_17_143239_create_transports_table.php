@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('transports', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->bigIncrements('id');
             $table->string('starting_place', 40)->nullable(false);
             $table->string('finishing_place', 40)->nullable(false);
             $table->string('merchandise', 40)->nullable(false);
             $table->double('mass')->nullable(false);
             $table->date('transport_date')->nullable(false);
-            $table->date('updated_at')->nullable(true);
+            $table->timestamps();
         });
     }
 

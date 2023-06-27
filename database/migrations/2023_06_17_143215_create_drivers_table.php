@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('drivers', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->bigIncrements('id');
             $table->string('name', 30)->nullable(false);
             $table->string('surname', 30)->nullable(false);
             $table->string('car', 30)->nullable(false);
-            $table->integer('user_id')->nullable(false);
-            $table->integer('forwarder_id')->nullable(false);
+            $table->unsignedBigInteger('user_id')->nullable(false);
+            $table->unsignedBigInteger('forwarder_id')->nullable(false);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('forwarder_id')->references('id')->on('forwarders');
-            $table->date('updated_at')->nullable(true);
+            $table->timestamps();
         });
     }
 

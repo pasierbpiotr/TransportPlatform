@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('driver_transports', function (Blueprint $table) {
-            $table->integer('driver_id');
-            $table->integer('transport_id');
+            $table->unsignedBigInteger('driver_id');
+            $table->unsignedBigInteger('transport_id');
             $table->foreign('driver_id')->references('id')->on('drivers')->onDelete('cascade');
             $table->foreign('transport_id')->references('id')->on('transports')->onDelete('cascade');
         });

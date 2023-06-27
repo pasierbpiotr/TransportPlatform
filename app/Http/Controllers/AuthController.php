@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Company;
+use App\Models\Driver;
 use App\Models\Forwarder;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,15 +22,76 @@ class AuthController extends Controller
         return view('register');
     }
 
-    function registerDriver() {
+    function registrationDriver() {
         $forwarders = Forwarder::all();
         return view('register-driver', compact('forwarders'));
     }
 
-    function registerForwarder() {
+    function registrationForwarder() {
         $companies = Company::all();
         return view('register-forwarder', compact('companies'));
     }
+
+    function registerDriver(Request $request) {
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'surname' => 'required|string|max:30',
+            'car' => 'required|string|max:30',
+            'forwarder_id' => 'required',
+            'login' => 'required|string|unique:users|max:30',
+            'password' => 'required|confirmed|min:5|max:30',
+        ]);
+
+        $user = User::create([
+            'login' => $validatedData['login'],
+            'type_id' => 3,
+            'password' => Hash::make($validatedData['password']),
+            'unhashed' => $validatedData['password'],
+        ]);
+
+        $userID = $user->id;
+
+        $driver = Driver::create([
+            'name' => $validatedData['name'],
+            'surname' => $validatedData['surname'],
+            'car' => $validatedData['car'],
+            'user_id' => $userID,
+            'forwarder_id' => $validatedData['forwarder_id'],
+        ]);
+
+        return redirect()->route('login')->with('success','Registration successful, you may log in.');
+    }
+
+    function registerForwarder(Request $request) {
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'surname' => 'required|string|max:30',
+            'company_id' => 'required',
+            'login' => 'required|string|unique:users|max:30',
+            'password' => 'required|confirmed|min:5|max:30',
+        ]);
+
+        $user = User::create([
+            'login' => $validatedData['login'],
+            'type_id' => 2,
+            'password' => Hash::make($validatedData['password']),
+            'unhashed' => $validatedData['password'],
+        ]);
+
+        $userID = $user->id;
+
+        $driver = Forwarder::create([
+            'name' => $validatedData['name'],
+            'surname' => $validatedData['surname'],
+            'user_id' => $userID,
+            'company_id' => $validatedData['company_id'],
+        ]);
+
+        return redirect()->route('login')->with('success','Registration successful, you may log in.');
+    }
+
 
     function loginPost(Request $request) {
 
