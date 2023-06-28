@@ -21,7 +21,6 @@ class User extends Authenticatable
         'type_id',
         'login',
         'password',
-        'unhashed',
     ];
 
     /**

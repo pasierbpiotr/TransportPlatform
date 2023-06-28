@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('type_id')->references('id')->on('user_types');
             $table->string('login', 30)->nullable(false);
             $table->string('password')->nullable(false);
-            $table->string('unhashed',30)->nullable(false);
             $table->timestamps();
         });
     }

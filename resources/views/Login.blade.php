@@ -37,13 +37,18 @@
             color: #001C30;
         }
 
-        .custom-input::placeholder {
-            color: #ccc;
-        }
+        .custom-input {
+                margin-bottom: 10px;
+                background-color: #01365c;
+                color: white;
+                border-color: #01365c;
+            }
 
-        .custom-input:focus::placeholder {
-            color: transparent;
-        }
+            .custom-input:focus {
+                margin-bottom: 10px;
+                background-color: #01365c;
+                color: white;
+            }
 
 
         .footer {

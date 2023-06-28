@@ -38,7 +38,7 @@ class AuthController extends Controller
             'name' => 'required|string|max:30',
             'surname' => 'required|string|max:30',
             'car' => 'required|string|max:30',
-            'forwarder_id' => 'required',
+            'forwarder_id' => 'required|exists:forwarders,id',
             'login' => 'required|string|unique:users|max:30',
             'password' => 'required|confirmed|min:5|max:30',
         ]);
@@ -47,7 +47,6 @@ class AuthController extends Controller
             'login' => $validatedData['login'],
             'type_id' => 3,
             'password' => Hash::make($validatedData['password']),
-            'unhashed' => $validatedData['password'],
         ]);
 
         $userID = $user->id;
@@ -68,7 +67,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:30',
             'surname' => 'required|string|max:30',
-            'company_id' => 'required',
+            'company_id' => 'required|exists:companies,id',
             'login' => 'required|string|unique:users|max:30',
             'password' => 'required|confirmed|min:5|max:30',
         ]);
@@ -77,7 +76,6 @@ class AuthController extends Controller
             'login' => $validatedData['login'],
             'type_id' => 2,
             'password' => Hash::make($validatedData['password']),
-            'unhashed' => $validatedData['password'],
         ]);
 
         $userID = $user->id;

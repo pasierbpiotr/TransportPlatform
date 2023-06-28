@@ -38,8 +38,15 @@ class ForwarderController extends Controller
 
     public function updateDriver(Request $request, string $id) {
         $driver = Driver::findOrFail($id);
-        $input = $request->all();
-        $driver->fill($input)->save();
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'surname' => 'required|string|max:30',
+            'car' => 'required|string|max:30',
+            'forwarder_id' => 'required|exists:forwarders,id',
+        ]);
+
+        $driver->fill($validatedData)->save();
         return redirect()->route('show_drivers')->with('update', 'Driver edited.');
     }
 

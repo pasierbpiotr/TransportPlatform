@@ -72,10 +72,14 @@
 
     <body>
         @include('include.header')
-        <div style="margin-top: 60px;">
-            <div>
-                <h1>Welcome to our page!</h1>
-                <p>We are XXX and support the work of transportation companies.</p>
+        <div class="mt-5">
+            <div class="container">
+                <div class="row justify-content-center align-items-center" style="height: 20vh;">
+                    <div class="col-12 text-center">
+                        <h1>Welcome to our page!</h1>
+                        <p>We are XXX and support the work of transportation companies.</p>
+                    </div>
+                </div>
             </div>
             <div>
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
@@ -115,7 +119,11 @@
                 </div>
             </div>
 
-            <h2>The companies we work with:</h2>
+            <div class="row justify-content-center align-items-center" style="height: 10vh;">
+                <div class="col-12 text-center">
+                    <h2>The companies we work with:</h2>
+                </div>
+            </div>
             <div id="wycieczki" class="container mb-5">
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-5 justify-content-center">
                     @forelse($companies as $index => $c)

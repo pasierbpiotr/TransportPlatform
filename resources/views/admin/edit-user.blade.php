@@ -52,6 +52,15 @@
 
             .custom-input {
                 margin-bottom: 10px;
+                background-color: #01365c;
+                color: white;
+                border-color: #01365c;
+            }
+
+            .custom-input:focus {
+                margin-bottom: 10px;
+                background-color: #01365c;
+                color: white;
             }
 
             .footer {
@@ -95,7 +104,7 @@
                 </div>
                 <div class="form-group">
                     <label for="category">Password:</label>
-                    <input type="text" class="form-control custom-input" id="password" name="password" placeholder="Enter password" value="{{ $user->unhashed }}">
+                    <input type="text" class="form-control custom-input" id="password" name="password" placeholder="Enter password">
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Edit">
             </form>

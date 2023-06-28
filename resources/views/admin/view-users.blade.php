@@ -123,7 +123,6 @@
                                     <th>ID</th>
                                     <th>User Type</th>
                                     <th>Login</th>
-                                    <th>Password</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
@@ -138,7 +137,6 @@
                                         @endif
                                     </td>
                                     <td>{{$u->login}}</td>
-                                    <td>{{$u->unhashed}}</td>
                                     <td>
                                         <a href="{{ route('edit_user', $u->id) }}">
                                         <button class="btn btn-warning btn-sm"><i class="fa fa-pencil-square-o"

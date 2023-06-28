@@ -28,11 +28,8 @@ class AdminController extends Controller
         else {
             $user = User::findOrFail($id);
             $input = $request->all();
-
-            if (isset($input['password'])) {
-                $unhashed = $input['password'];
-                $input['password'] = Hash::make($unhashed);
-                $input['unhashed'] = $unhashed;
+            if(empty($input['password'])) {
+                unset($input['password']);
             }
             $user->fill($input)->save();
             return redirect()->route('view_users')->with('update', 'User edited.');
@@ -53,8 +50,14 @@ class AdminController extends Controller
 
     public function updateForwarder(Request $request, string $id) {
         $forwarder = Forwarder::findOrFail($id);
-        $input = $request->all();
-        $forwarder->fill($input)->save();
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'surname' => 'required|string|max:30',
+            'company_id' => 'required|exists:companies,id',
+        ]);
+
+        $forwarder->fill($validatedData)->save();
         return redirect()->route('view_forwarders')->with('update', 'Forwarder edited.');
     }
 
@@ -82,8 +85,15 @@ class AdminController extends Controller
 
     public function updateDriver(Request $request, string $id) {
         $driver = Driver::findOrFail($id);
-        $input = $request->all();
-        $driver->fill($input)->save();
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'surname' => 'required|string|max:30',
+            'car' => 'required|string|max:30',
+            'forwarder_id' => 'required|exists:forwarders,id',
+        ]);
+
+        $driver->fill($validatedData)->save();
         return redirect()->route('view_drivers')->with('update', 'Driver edited.');
     }
 

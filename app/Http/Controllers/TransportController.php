@@ -20,14 +20,22 @@ class TransportController extends Controller
 
     public function updateTransport(Request $request, string $id) {
     $transport = Transport::findOrFail($id);
-    $input = $request->all();
-    $transport->fill($input)->save();
 
-    if (isset($input['driver_id'])) {
-        $driverId = $input['driver_id'];
+    $validatedData = $request->validate([
+        'driver_id' => 'required|exists:drivers,id',
+        'starting_place' => 'required|string|max:40',
+        'finishing_place' => 'required|string|max:40',
+        'merchandise' => 'required|string|max:40',
+        'mass' => 'required|numeric',
+        'transport_date' => 'required|date',
+    ]);
+
+    if (isset($validatedData['driver_id'])) {
+        $driverId = $validatedData['driver_id'];
         $transport->driver()->sync([$driverId]);
     }
 
+    $transport->fill($validatedData)->save();
     return redirect()->route('forwarder_show_trans')->with('update', 'Transport edited.');
     }
 
