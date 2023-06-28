@@ -44,20 +44,16 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    function nameForwarder() {
-        return $this->hasOne(Forwarder::class);
-    }
-
-    function nameDriver() {
-        return $this->hasOne(Driver::class);
-    }
-
     function driver() {
         return $this->hasOne(Driver::class);
     }
 
     function forwarder() {
         return $this->hasOne(Forwarder::class);
+    }
+
+    function usertype() {
+        return $this->hasOne(UserType::class);
     }
 }
 
