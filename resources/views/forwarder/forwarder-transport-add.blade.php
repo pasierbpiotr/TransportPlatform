@@ -95,22 +95,37 @@
                 <div class="form-group">
                     <label for="starting_place">Start:</label>
                     <input type="text" class="form-control custom-input" id="starting_place" name="starting_place" placeholder="Enter start">
+                    @error('starting_place')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="finishing_place">Finish:</label>
                     <input type="text" class="form-control custom-input" id="finishing_place" name="finishing_place" placeholder="Enter finish">
+                    @error('finishing_place')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="merchandise">Merchandise:</label>
                     <input type="text" class="form-control custom-input" id="merchandise" name="merchandise" placeholder="Enter merchandise">
+                    @error('merchandise')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="mass">Mass:</label>
                     <input type="number" class="form-control custom-input" id="mass" name="mass" placeholder="Enter mass" step="0.01">
+                    @error('mass')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="transport_date">Date:</label>
                     <input type="date" class="form-control custom-input" id="transport_date" name="transport_date" placeholder="Enter date">
+                    @error('transport_date')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
                 </div>
                 <input type="submit" class="btnwlasny btn btn-primary" value="Add">
             </form>

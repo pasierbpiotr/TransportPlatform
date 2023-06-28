@@ -67,10 +67,8 @@ class ForwarderController extends Controller
             'merchandise' => 'required|string|max:40',
             'mass' => 'required|numeric',
             'transport_date' => 'required|date|after_or_equal:today',
-            // Include other validation rules for transport data
         ]);
 
-        // Create a new transport
         $transport = new Transport([
             'starting_place' => $validatedData['starting_place'],
             'finishing_place' => $validatedData['finishing_place'],

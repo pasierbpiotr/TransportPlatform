@@ -61,8 +61,9 @@ class AdminController extends Controller
     public function removeForwarder(string $id) {
         $forwarder = Forwarder::findOrFail($id);
         $forwarder->drivers()->delete();
-        $forwarder->user()->delete();
+        $user = $forwarder->user();
         $forwarder->delete();
+        $user->delete();
 
         return redirect()->back()->with('delete', 'Forwarder removed.');
     }
@@ -87,8 +88,9 @@ class AdminController extends Controller
     }
 
     public function removeDriver(string $id) {
-        $forwarder = Driver::findOrFail($id);
-        $forwarder->delete();
+        $driver = Driver::findOrFail($id);
+        $driver->delete();
+        $driver->user()->delete();
 
         return redirect()->back()->with('delete', 'Driver removed.');
     }
